@@ -30,7 +30,7 @@ export default {
       }
     },
     next(){
-      if (this.actualPage < this.totalPage) {
+      if (this.actualPage < this.totalPages) {
         this.actualPage += 1;
         this.emitPage(this.actualPage);
       }

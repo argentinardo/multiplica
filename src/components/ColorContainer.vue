@@ -27,7 +27,7 @@ export default {
   watch: {
     currentPage: function(){
       let sufix = ""
-      this.currentPage == 2 ? sufix = "?page=2" : sufix = ""
+      this.currentPage > 1 ? sufix = "?page=" + this.currentPage  : sufix = ""
       this.jsonUrl = "https://reqres.in/api/colors" + sufix
       this.getData()
     }

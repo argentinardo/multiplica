@@ -1,7 +1,6 @@
 <template>
   <article class="home">
     <main-header title="Colores"></main-header>
-    <h1> page {{actualPage}}</h1>
     <color-container :currentPage="this.updatePage"></color-container>
     <pagination-footer @emitPage="emitHola"></pagination-footer>
   </article>

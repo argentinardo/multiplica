@@ -15,7 +15,8 @@ export default {
   name: 'PaginationFooter',
   data() {
     return{
-      actualPage: 1
+      actualPage: 1,
+      totalPages: 2
     }
   },
   methods: {
@@ -23,12 +24,16 @@ export default {
       this.$emit("emitPage",  e);
     },
     prev(){
-      this.actualPage= 1;
-      this.emitPage(1);
+      if (this.actualPage > 1) {
+        this.actualPage -= 1;
+        this.emitPage(this.actualPage);
+      }
     },
     next(){
-      this.actualPage= 2;
-      this.emitPage(2);
+      if (this.actualPage < this.totalPage) {
+        this.actualPage += 1;
+        this.emitPage(this.actualPage);
+      }
     }
   }
 }

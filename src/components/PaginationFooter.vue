@@ -1,10 +1,10 @@
 <template>
   <footer class="main-footer">
     <div class="main-footer__nav">
-      <a href="#" class="nav__item item__prev nav__item--disabled">
+      <a href="#" class="nav__item item__prev nav__item--disabled" @click.prevent="prev()">
         &lt; Anterior
       </a>
-      <a href="#" class="nav__item item__next">
+      <a href="#" class="nav__item item__next"  @click.prevent="next()">
         Siguiente &gt;
       </a>
     </div>
@@ -13,8 +13,23 @@
 <script>
 export default {
   name: 'PaginationFooter',
-  props: {
-    title: String
+  data() {
+    return{
+      actualPage: 1
+    }
+  },
+  methods: {
+    emitPage(e){
+      this.$emit("emitPage",  e);
+    },
+    prev(){
+      this.actualPage= 1;
+      this.emitPage(1);
+    },
+    next(){
+      this.actualPage= 2;
+      this.emitPage(2);
+    }
   }
 }
 </script>

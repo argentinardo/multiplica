@@ -1,7 +1,7 @@
 <template>
   <div class="color-container">
     <color-card
-     v-for="color in colors.data.data"
+     v-for="color in colors.data"
      :key="color.id"
      :colorYear="color.year"
      :colorId="color.id"
@@ -15,25 +15,39 @@
 
 <script>
 import ColorCard from './ColorCard.vue'
-  import axios from 'axios'
+import axios from 'axios'
 export default {
   data() {
    return {
     jsonUrl: "https://reqres.in/api/colors",
-    colors: []
+    colors: [],
+    currentUrl: this.currentPage
    }
   },
+  watch: {
+    currentPage: function(){
+      let sufix = ""
+      this.currentPage == 2 ? sufix = "?page=2" : sufix = ""
+      this.jsonUrl = "https://reqres.in/api/colors" + sufix
+      this.getData()
+    }
+  },
+  props: {
+    currentPage: Number
+  },
+  methods: {
+    getData(){
+      axios
+        .get( this.jsonUrl)
+        .then( response => (this.colors = response.data))
+        .catch( error => console.log(error))
+    }
+  },
   mounted(){
-    axios
-      .get( this.jsonUrl)
-      .then( response => (this.colors = response))
-      .catch( error => console.log(error))
+    this.getData()
   },
   components: { ColorCard },
-  name: 'ColorContainer',
-  props: {
-    title: String
-  }
+  name: 'ColorContainer'
 }
 </script>
 

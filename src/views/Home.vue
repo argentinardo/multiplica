@@ -1,8 +1,9 @@
 <template>
   <article class="home">
     <main-header title="Colores"></main-header>
-    <color-container></color-container>
-    <pagination-footer></pagination-footer>
+    <h1> page {{actualPage}}</h1>
+    <color-container :currentPage="this.updatePage"></color-container>
+    <pagination-footer @emitPage="emitHola"></pagination-footer>
   </article>
 </template>
 
@@ -18,6 +19,21 @@ export default {
     MainHeader,
     PaginationFooter,
     ColorContainer
+  },
+  data(){
+    return {
+    actualPage : 1
+    }
+  },
+  computed: {
+    updatePage(){
+      return this.actualPage;
+    }
+  },
+  methods :{
+    emitHola(e){
+      this.actualPage = e;
+    }
   }
 }
 </script>

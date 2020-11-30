@@ -11,7 +11,7 @@
 export default {
   name: 'ColorContainer',
   props: {
-    colorId: String,
+    colorId: Number,
     colorName: String,
     colorHex: String,
     colorPantone: String

@@ -3,6 +3,7 @@
     <color-card
      v-for="color in colors.data.data"
      :key="color.id"
+     :colorYear="color.year"
      :colorId="color.id"
      :colorName="color.name"
      :colorHex="color.color"

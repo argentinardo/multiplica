@@ -1,6 +1,6 @@
 <template>
   <div class="color-card" :style="{ backgroundColor: this.colorHex }">
-    <span class="color-card__id">{{colorId}}</span>
+    <span class="color-card__year">{{colorYear}}</span>
     <span class="color-card__name">{{colorName}}</span>
     <span class="color-card__hex">{{colorHex}}</span>
     <span class="color-card__pantone">{{colorPantone}}</span>
@@ -11,7 +11,7 @@
 export default {
   name: 'ColorContainer',
   props: {
-    colorId: Number,
+    colorYear: Number,
     colorName: String,
     colorHex: String,
     colorPantone: String
@@ -34,8 +34,9 @@ export default {
     font-size: 2rem;
     padding: 1rem;
   }
-  .color-card__id {
+  .color-card__year {
     align-self: flex-start;
+    font-size: 1.6rem;
   }
   .color-card__name {
     line-height: 4rem;
@@ -47,5 +48,6 @@ export default {
   }
   .color-card__pantone {
     align-self: flex-end;
+    font-size: 1.6rem;
   }
 </style>

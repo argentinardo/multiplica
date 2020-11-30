@@ -1,5 +1,9 @@
 <template>
-  <div class="colorCard">
+  <div class="color-card">
+    <span class="color-card__id">{{colorId}}</span>
+    <span class="color-card__name">{{colorName}}</span>
+    <span class="color-card__hex">{{colorHex}}</span>
+    <span class="color-card__pantone">{{colorPantone}}</span>
   </div>
 </template>
 
@@ -7,7 +11,10 @@
 export default {
   name: 'ColorContainer',
   props: {
-    title: String
+    colorId: String,
+    colorName: String,
+    colorHex: String,
+    colorPantone: String
   }
 }
 </script>

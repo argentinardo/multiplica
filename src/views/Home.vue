@@ -1,6 +1,6 @@
 <template>
   <article class="home">
-    <main-header></main-header>
+    <main-header title="Colores"></main-header>
     <color-container></color-container>
     <pagination-footer></pagination-footer>
   </article>
@@ -21,3 +21,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.home{
+  box-sizing:border-box;
+  display: flex;
+  flex-direction: column;
+}
+</style>

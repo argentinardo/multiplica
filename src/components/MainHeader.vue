@@ -1,6 +1,6 @@
 <template>
-  <header>
-    <h1>
+  <header class="main-header">
+    <h1 class="main-header_title">
       {{title}}
     </h1>
   </header>
@@ -16,5 +16,14 @@ export default {
 </script>
 
 <style lang="scss">
-
+  .main-header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.3rem rgba(0,0,0,0.4);
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
 </style>

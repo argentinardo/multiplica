@@ -42,6 +42,8 @@ export default {
   }
   .color-card__hex {
     line-height: 4rem;
+    font-weight: 600;
+    text-shadow: 0 0 0.15rem rgba(0,0,0,2);
   }
   .color-card__pantone {
     align-self: flex-end;

@@ -1,5 +1,9 @@
-# colorapp
+# Colorapp - Hexadecimal code copy from Multiplica color schema
 
+## clone repository 
+```
+   git clone https://github.com/argentinardo/multiplica.git
+```
 ## Project setup
 ```
 npm install
@@ -14,11 +18,18 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
+### Branchs
 ```
-npm run lint
+main branch
+dev branch
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Netlify deployment
+```
+when update main branch deploy on https://damian-nardini-multiplica.netlify.app/
+when update dev branch deploy on https://dev--damian-nardini-multiplica.netlify.app/
+```
+### Use
+```
+just select color and automatically is copied to windows clipboard
+```

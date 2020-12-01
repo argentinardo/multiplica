@@ -21,7 +21,8 @@ export default {
   },
   data(){
     return {
-    actualPage : 1
+    actualPage : 1,
+    maximizedColor: false
     }
   },
   computed: {
@@ -41,7 +42,6 @@ export default {
 .home{
   display: flex;
   flex-direction: column;
-  height: 100vh;
   align-items: stretch;
 }
 </style>

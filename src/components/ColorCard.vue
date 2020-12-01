@@ -1,20 +1,42 @@
 <template>
-  <div class="color-card" :style="{ backgroundColor: this.colorHex }">
+  <div class="color-card" :class="{'color-card--max': maximized}"  :style="{ backgroundColor: this.colorHex }">
+    <copy-to-clipboard :text="text" @click="maxCopy()" @copy="handleCopy">
     <span class="color-card__year">{{colorYear}}</span>
-    <span class="color-card__name">{{colorName}}</span>
-    <span class="color-card__hex">{{colorHex}}</span>
+    <span v-if="maximized"  class="color-card__copy">¡Copiado!</span>
+    <span v-if="!maximized"  class="color-card__name">{{colorName}}</span>
+      <input disabled v-if="!maximized" :value="this.colorHex" class="color-card__hex" />
     <span class="color-card__pantone">{{colorPantone}}</span>
+    </copy-to-clipboard>
   </div>
 </template>
 
 <script>
+import CopyToClipboard from 'vue-copy-to-clipboard'
 export default {
+  components: {CopyToClipboard},
   name: 'ColorContainer',
   props: {
     colorYear: Number,
     colorName: String,
     colorHex: String,
     colorPantone: String
+  },
+  data(){
+    return {
+      maximized: false,
+      text: ""
+    }
+  },
+  methods: {
+    handleCopy (result) {
+      this.maximized = !this.maximized;
+      if(!this.maximized){
+        
+        this.text = this.$props.colorHex
+        
+      }
+      console.log('onCopy', result)
+    }
   }
 }
 </script>
@@ -27,13 +49,44 @@ export default {
     background: white;
     border-radius: 0.5rem;
     min-width: 8rem;
-    box-shadow: 0 0 0.3rem rgba(0,0,0,0.4);
+    box-shadow: 0 0 0.3rem rgba(0,0,0,0.6);
     color: white;
     text-shadow: 0 0 0.1rem rgba(0,0,0,1);
     font-size: 2rem;
     padding: 1rem;
     flex: 0 32%;
     margin-bottom:2rem;
+    transition: all 0.2s ease-out;
+    &:hover {
+      transition: all 0.1s ease-out;
+      box-shadow: 0 0 0.6rem rgba(0,0,0,0.3);
+      transform: scale(1.02);
+      cursor: pointer;
+    }
+    &.color-card--max {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+      &:hover{
+        transform: scale(1);
+      }
+      & > span {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+      }
+    }
+   & > span {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+  }
+  .color-card__copy {
+    font-size: 2.5rem;
   }
   .color-card__year {
     align-self: flex-start;
@@ -46,6 +99,12 @@ export default {
     line-height: 4rem;
     font-weight: 600;
     text-shadow: 0 0 0.15rem rgba(0,0,0,2);
+    font-size: 2rem;
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    cursor: pointer;
   }
   .color-card__pantone {
     align-self: flex-end;

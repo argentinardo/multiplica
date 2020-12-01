@@ -25,5 +25,9 @@ export default {
     box-shadow: 0 0 0.3rem rgba(0,0,0,0.4);
     font-size: 1.6rem;
     margin-bottom: 2rem;
+    background: #ef540e;
+    color: white;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
   }
 </style>

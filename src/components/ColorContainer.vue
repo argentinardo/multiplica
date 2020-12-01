@@ -56,5 +56,8 @@ export default {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-content: space-around;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 </style>

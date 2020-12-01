@@ -39,10 +39,9 @@ export default {
 
 <style lang="scss">
 .home{
-  box-sizing:border-box;
   display: flex;
   flex-direction: column;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+  height: 100vh;
+  align-items: stretch;
 }
 </style>

@@ -4,7 +4,7 @@
     <span class="color-card__year">{{colorYear}}</span>
     <span v-if="maximized"  class="color-card__copy">¡Copiado!</span>
     <span v-if="!maximized"  class="color-card__name">{{colorName}}</span>
-      <input disabled v-if="!maximized" :value="this.colorHex" class="color-card__hex" />
+      <span disabled v-if="!maximized" class="color-card__hex">{{colorHex}}</span>
     <span class="color-card__pantone">{{colorPantone}}</span>
     </copy-to-clipboard>
   </div>
@@ -30,12 +30,11 @@ export default {
   methods: {
     handleCopy (result) {
       this.maximized = !this.maximized;
-      if(!this.maximized){
-        
+      if(this.maximized){
         this.text = this.$props.colorHex
-        
+        console.log(this.$el.querySelector(".color-card__hex").textContent)
+        console.log('onCopy', result)
       }
-      console.log('onCopy', result)
     }
   }
 }

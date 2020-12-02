@@ -1,7 +1,6 @@
 <template>
   <div class="color-container">
     <color-card
-    @maxCopyData="maximize"
      v-for="color in colors.data"
      :key="color.id"
      :colorYear="color.year"
@@ -42,9 +41,6 @@ export default {
         .get( this.jsonUrl)
         .then( response => (this.colors = response.data))
         .catch( error => console.log(error))
-    },
-    maximize(e){
-      console.log(e)
     }
   },
   mounted(){

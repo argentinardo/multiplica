@@ -99,11 +99,6 @@ export default {
     font-weight: 600;
     text-shadow: 0 0 0.15rem rgba(0,0,0,2);
     font-size: 2rem;
-    border: none;
-    background-color: transparent;
-    color: white;
-    text-align: center;
-    cursor: pointer;
   }
   .color-card__pantone {
     align-self: flex-end;

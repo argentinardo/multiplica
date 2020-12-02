@@ -1,13 +1,13 @@
 <template>
-  <div class="color-card" :class="{'color-card--max': maximized}"  :style="{ backgroundColor: this.colorHex }">
-    <copy-to-clipboard :text="text" @click="maxCopy()" @copy="handleCopy">
-    <span class="color-card__year">{{colorYear}}</span>
-    <span v-if="maximized"  class="color-card__copy">¡Copiado!</span>
-    <span v-if="!maximized"  class="color-card__name">{{colorName}}</span>
-      <span disabled v-if="!maximized" class="color-card__hex">{{colorHex}}</span>
-    <span class="color-card__pantone">{{colorPantone}}</span>
-    </copy-to-clipboard>
-  </div>
+    <div class="color-card" :class="{'color-card--max': maximized}"  :style="{ backgroundColor: this.colorHex }">
+  <copy-to-clipboard @copy="maximize"  :text="this.$props.colorHex">
+      <span class="color-card__year">{{colorYear}}</span>
+      <span v-if="maximized"  class="color-card__copy">¡Copiado!</span>
+      <span v-if="!maximized"  class="color-card__name">{{colorName}}</span>
+        <span disabled v-if="!maximized" class="color-card__hex">{{colorHex}}</span>
+      <span class="color-card__pantone">{{colorPantone}}</span>
+  </copy-to-clipboard>
+    </div>
 </template>
 
 <script>
@@ -24,17 +24,13 @@ export default {
   data(){
     return {
       maximized: false,
-      text: ""
+      copiedText: "antes"
     }
   },
   methods: {
-    handleCopy (result) {
-      this.maximized = !this.maximized;
-      if(this.maximized){
-        this.text = this.$props.colorHex
-        console.log(this.$el.querySelector(".color-card__hex").textContent)
-        console.log('onCopy', result)
-      }
+    maximize() {
+      this.maximized = !this.maximized
+      console.log("que onda?")
     }
   }
 }

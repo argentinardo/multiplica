@@ -31,5 +31,5 @@ when update dev branch deploy on https://dev--damian-nardini-multiplica.netlify.
 ```
 ### Use
 ```
-just select color and automatically is copied to windows clipboard
+just select color and automatically is copied to  clipboard
 ```
